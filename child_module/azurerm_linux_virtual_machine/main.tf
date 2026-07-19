@@ -1,3 +1,4 @@
+
 resource "azurerm_network_interface" "nic" {
   for_each = var.vms
 
@@ -14,8 +15,16 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
+resource "azurerm_network_interface_security_group_association" "nic_nsg_assn" {
+  for_each = var.vms
+
+  network_interface_id      = data.azurerm_network_interface.data_nic[each.key].id
+  network_security_group_id = data.azurerm_network_security_group.data_nsg[each.key].id
+}
+
+
 resource "azurerm_linux_virtual_machine" "vms_linux" {
-for_each = var.vms
+  for_each = var.vms
 
   name                            = each.value.vm_name
   resource_group_name             = each.value.rg_name
@@ -27,7 +36,7 @@ for_each = var.vms
 
 
   network_interface_ids = [
-    azurerm_network_interface.nic[each.key].id]
+  azurerm_network_interface.nic[each.key].id]
 
   os_disk {
     caching              = each.value.os_caching
@@ -41,5 +50,3 @@ for_each = var.vms
     version   = each.value.image_version
   }
 }
-
-

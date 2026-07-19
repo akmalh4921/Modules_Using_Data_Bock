@@ -12,3 +12,17 @@ data "azurerm_public_ip" "data_pip" {
   name                = each.value.pip_name
   resource_group_name = each.value.rg_name
 }
+
+data "azurerm_network_security_group" "data_nsg" {
+    for_each = var.vms
+
+  name                = each.value.nsg_name
+  resource_group_name = each.value.rg_name
+}
+
+data "azurerm_network_interface" "data_nic" {
+  for_each = var.vms
+  
+  name                = each.value.nic_name
+  resource_group_name = each.value.rg_name
+}
