@@ -1,7 +1,7 @@
 
 resource_groups = {
   rg1 = {
-    rg_name  = "rg-dev-07"
+    rg_name  = "rg-dev-009"
     location = "central india"
   }
   
@@ -10,7 +10,7 @@ resource_groups = {
 vnets = {
   vnet1 = {
     vnet_name     = "vnet-dev-07"
-    rg_name       = "rg-dev-07"
+    rg_name       = "rg-dev-009"
     location      = "central india"
     address_space = ["10.0.0.0/16"]
   }
@@ -19,21 +19,21 @@ vnets = {
 subnets = {
   sbnet1 = {
     subnet_name      = "subnet-dev-07"
-    rg_name          = "rg-dev-07"
+    rg_name          = "rg-dev-009"
     vnet_name        = "vnet-dev-07"
     address_prefixes = ["10.0.1.0/24"]
   }
 
   sbnet2 = {
     subnet_name      = "subnet-dev-08"
-    rg_name          = "rg-dev-07"
+    rg_name          = "rg-dev-009"
     vnet_name        = "vnet-dev-07"
     address_prefixes = ["10.0.2.0/24"]
   }
 
   sbnet3 = {
     subnet_name      = "AzureBastionSubnet"
-    rg_name          = "rg-dev-07"
+    rg_name          = "rg-dev-009"
     vnet_name        = "vnet-dev-07"
     address_prefixes = ["10.0.3.0/26"]
   }
@@ -43,7 +43,7 @@ subnets = {
 pips = {
   pip1 = {
     pip_name          = "pip-dev-07"
-    rg_name           = "rg-dev-07"
+    rg_name           = "rg-dev-009"
     location          = "central india"
     allocation_method = "Static"
   }
@@ -51,7 +51,7 @@ pips = {
 
   pip2 = {
     pip_name          = "pip-dev-08"
-    rg_name           = "rg-dev-07"
+    rg_name           = "rg-dev-009"
     location          = "central india"
     allocation_method = "Static"
   }
@@ -59,7 +59,7 @@ pips = {
 
 nics = {
   nic1 = {
-    rg_name                       = "rg-dev-07"
+    rg_name                       = "rg-dev-009"
     location                      = "central india"
     vnet_name                     = "vnet-dev-07"
     subnet_name                   = "subnet-dev-07"
@@ -71,7 +71,7 @@ nics = {
   }
 
   nic2 = {
-    rg_name                       = "rg-dev-07"
+    rg_name                       = "rg-dev-009"
     location                      = "central india"
     vnet_name                     = "vnet-dev-07"
     subnet_name                   = "subnet-dev-08"
@@ -88,7 +88,7 @@ nsgs = {
   nsg1 = {
     nsg_name = "NetworkSecurityGroup1"
     location = "central india"
-    rg_name  = "rg-dev-07"
+    rg_name  = "rg-dev-009"
 
     sr_name                       = "AllowHTTPSSH"
     sr_priority                   = 100
@@ -103,7 +103,7 @@ nsgs = {
   nsg2 = {
     nsg_name = "NetworkSecurityGroup2"
     location = "central india"
-    rg_name  = "rg-dev-07"
+    rg_name  = "rg-dev-009"
 
     sr_name                       = "AllowHTTPSSH"
     sr_priority                   = 100
@@ -126,7 +126,7 @@ vms = {
     ip_config_name                  = "Internal"
     private_ip_address_allocation   = "Dynamic"
     allocation_method               = "Static"
-    rg_name                         = "rg-dev-07"
+    rg_name                         = "rg-dev-009"
     location                        = "central india"
     nic_name                        = "nic-dev-07"
     nsg_name                        = "NetworkSecurityGroup1"
@@ -153,7 +153,7 @@ vms = {
     ip_config_name                  = "Internal"
     private_ip_address_allocation   = "Dynamic"
     allocation_method               = "Static"
-    rg_name                         = "rg-dev-07"
+    rg_name                         = "rg-dev-009"
     location                        = "central india"
     nic_name                        = "nic-dev-08"
     nsg_name                        = "NetworkSecurityGroup2"
