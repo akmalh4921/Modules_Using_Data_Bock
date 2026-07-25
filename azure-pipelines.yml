@@ -1,0 +1,42 @@
+name: Data_Block_Pipeline
+
+trigger:
+  - main
+
+pool: PipelineAgent
+
+steps:
+  - task: TerraformInstaller@1
+    displayName: 'Install Terraform'
+    inputs:
+      terraformVersion: 'latest'
+
+  - task: TerraformTask@5
+    displayName: 'Terraform Init'
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/pre_prod'
+      backendServiceArm: 'Azure_Svc'
+      backendAzureRmOverrideSubscriptionID: 'b299f192-d573-4040-b542-2aff90a974b5'
+      backendAzureRmResourceGroupName: 'rg-dev-01'
+      backendAzureRmStorageAccountName: 'storageabcxyz1990'
+      backendAzureRmContainerName: 'myctnr101'
+      backendAzureRmKey: 'Mahbub'
+
+  - task: TerraformTask@5
+    displayName: 'Terraform Plan'
+    inputs:
+      provider: 'azurerm'
+      command: 'plan'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/pre_prod'
+      environmentServiceNameAzureRM: 'Azure_Svc'
+
+  - task: TerraformTask@5
+    displayName: 'Terraform Apply'
+    inputs:
+      provider: 'azurerm'
+      command: 'apply'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/environment/pre_prod'
+      commandOptions: '-auto-approve'
+      environmentServiceNameAzureRM: 'Azure_Svc'
