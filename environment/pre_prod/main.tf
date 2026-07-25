@@ -34,14 +34,6 @@ module "nsg" {
 
 }
 
-# module "nic_nsg_assn" {
-#   source = "../../child_module/azurerm_network_interface_security_group_association"
-
-#   nic_nsg_association = var.nic_nsg_association
-
-#   depends_on = [module.vm_linux, module.nsg]
-# }
-
 module "vm_linux" {
   source     = "../../child_module/azurerm_linux_virtual_machine"
   depends_on = [module.resource_group, module.virtual_network, module.subnet, module.public_ip,]
