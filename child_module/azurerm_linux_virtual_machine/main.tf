@@ -28,7 +28,7 @@ resource "azurerm_linux_virtual_machine" "vms_linux" {
   admin_username                  = each.value.admin_username
   admin_password                  = each.value.admin_password
   disable_password_authentication = each.value.disable_password_authentication
-  allow_extension_operations      = each.value.allow_extension_operations
+ 
 
 
   network_interface_ids = [
