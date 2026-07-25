@@ -134,14 +134,14 @@ vms = {
     vm_size                         = "Standard_D2_v3"
     admin_username                  = "admindevops"
     admin_password                  = "Devops@12345"
-    disable_password_authentication = true
+    disable_password_authentication = false
     os_caching                      = "ReadWrite"
     storage_account_type            = "Standard_LRS"
     image_publisher                 = "Canonical"
     image_offer                     = "0001-com-ubuntu-server-jammy"
     image_sku                       = "22_04-lts"
     image_version                   = "latest"
-    allow_extension_operations=false
+    
 
                                
   }
@@ -161,7 +161,7 @@ vms = {
     vm_size                         = "Standard_D2_v3"
     admin_username                  = "admindevops"
     admin_password                  = "Devops@12345"
-    disable_password_authentication = true
+    disable_password_authentication = false
     os_caching                      = "ReadWrite"
     storage_account_type            = "Standard_LRS"
     image_publisher                 = "Canonical"
