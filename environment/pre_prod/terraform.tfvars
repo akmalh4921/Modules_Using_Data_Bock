@@ -45,7 +45,7 @@ pips = {
     pip_name          = "pip-dev-07"
     rg_name           = "rg-dev-009"
     location          = "central india"
-    allocation_method = "Static"
+    allocation_method =  "Static"
   }
 
 
