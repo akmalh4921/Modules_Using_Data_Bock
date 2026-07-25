@@ -132,8 +132,8 @@ vms = {
     nsg_name                        = "NetworkSecurityGroup1"
     vm_name                         = "vm-frontend"
     vm_size                         = "Standard_D2_v3"
-    # admin_username                  = "admindevops"
-    # admin_password                  = "Devops@12345"
+    admin_username                  = "admindevops"
+    admin_password                  = "Devops@12345"
     disable_password_authentication = true
     os_caching                      = "ReadWrite"
     storage_account_type            = "Standard_LRS"
@@ -143,14 +143,9 @@ vms = {
     image_version                   = "latest"
     allow_extension_operations=false
 
-     admin_ssh_key = {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
-     tags                            = { test = "Fail" }
+                               
   }
-  }
-
-
+  
   vm2 = {
     vnet_name                       = "vnet-dev-07"
     subnet_name                     = "subnet-dev-08"
@@ -164,8 +159,8 @@ vms = {
     nsg_name                        = "NetworkSecurityGroup2"
     vm_name                         = "vm-backendend"
     vm_size                         = "Standard_D2_v3"
-    # admin_username                  = "admindevops"
-    # admin_password                  = "Devops@12345"
+    admin_username                  = "admindevops"
+    admin_password                  = "Devops@12345"
     disable_password_authentication = true
     os_caching                      = "ReadWrite"
     storage_account_type            = "Standard_LRS"
@@ -173,15 +168,12 @@ vms = {
     image_offer                     = "0001-com-ubuntu-server-jammy"
     image_sku                       = "22_04-lts"
     image_version                   = "latest"
-    allow_extension_operations=false
+  
 
-       admin_ssh_key = {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
+  } 
   }
-   tags                            = { test = "Fail" }
-  }
-  }
+  
+  
 
 
 
